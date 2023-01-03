@@ -1,7 +1,7 @@
 <template>
   <main class="flex flex-col items-center justify-center h-screen md:flex-row md:flex-row-reverse md:justify-evenly">
 
-      <div class="md:bg-gray-100 md:h-screen md:flex md:flex-col md:items-center md:justify-center">
+      <div class="md:bg-gray-100 md:h-screen md:flex md:flex-col md:items-center md:justify-center md:bg-cover">
 
           <img src="../assets/asset-1.png" class="w-24 my-4 md:w-full " alt="hero-img">
       </div>
@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { useRouter } from 'vue-router'
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
@@ -59,20 +59,25 @@ const auth = getAuth()
 const userEmail = ref('')
 const userPassword = ref('')
 const emailLogin = () => {
-  signInWithEmailAndPassword(auth, userEmail.value, userPassword.value)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user)
-    userVal.userlogin(user)
-    router.push("/user")
-    // ...
+  setPersistence(auth, browserSessionPersistence).then(() => {
+
+
+    signInWithEmailAndPassword(auth, userEmail.value, userPassword.value)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user)
+      userVal.userlogin(user)
+      router.push("/user")
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
   })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+
 
 }
 const googleAuthLogin = ()=> console.log("google auth login")
