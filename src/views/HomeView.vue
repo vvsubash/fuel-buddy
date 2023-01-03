@@ -63,8 +63,9 @@ const emailLogin = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    userVal.userlogin()
-    router.push("/user")
+    console.log(user)
+    userVal.userlogin(user)
+    // router.push("/user")
     // ...
   })
   .catch((error) => {

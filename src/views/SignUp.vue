@@ -27,9 +27,7 @@
         <div class="my-2">
             <button type="submit" class="mx-2 mb-4 p-2 block w-full bg-purple-500 text-white text-sm font-medium rounded" @click="emailLogin">Sign
                 Up</button>
-                <button type="submit" class="mx-2 p-2 block w-full text-gray-500 text-sm border font-medium rounded" @click="googleAuthLogin">
-                    <i></i> Sign
-                in with Google</button>
+              
         </div>
         <div class="text-center text-sm pt-1 text-gray-400 font-semibold">
   
