@@ -3,7 +3,9 @@ import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
 export const getUserState = defineStore('user', ()=> {
-    let user = ref({})
+    let user:any = ref({
+        
+    })
     let userlogin = (userData: {}) => user.value = userData
 
     let userDisplayData = computed(()=> {
