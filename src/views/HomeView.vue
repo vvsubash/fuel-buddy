@@ -49,6 +49,9 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from 'vue-router'
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
+import { getUserState } from "../stores/userState"
+
+const userVal = getUserState()
 
 const router = useRouter()
 
@@ -60,7 +63,7 @@ const emailLogin = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user)
+    userVal.userlogin()
     router.push("/user")
     // ...
   })
