@@ -65,7 +65,7 @@ const emailLogin = () => {
     const user = userCredential.user;
     console.log(user)
     userVal.userlogin(user)
-    // router.push("/user")
+    router.push("/user")
     // ...
   })
   .catch((error) => {
