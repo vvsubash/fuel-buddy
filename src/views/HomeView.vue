@@ -15,6 +15,7 @@
           <label for="email" class="m-2 text-xs w-full font-medium" >Email</label>
           <input class="border ml-2 w-full p-1 text-sm rounded font-medium" type="text" placeholder="Enter your email" v-model="userEmail">
       </fieldset>
+      
       <fieldset class="my-2">
           <label for="email" class="m-2 text-xs w-full font-medium">Password</label>
           <input class="border ml-2 w-full p-1 text-sm rounded font-medium" type="password" placeholder="*********" v-model="userPassword">
