@@ -10,7 +10,7 @@
           <h1 class="text-2xl">Welcome back</h1>
           <p class="text-xs text-gray-400 mt-2 mb-4">Welcome back! please enter your details</p>
       </div>
-      <div >
+      <form @submit.prevent="emailLogin">
       <fieldset class="my-2">
           <label for="email" class="m-2 text-xs w-full font-medium" >Email</label>
           <input class="border ml-2 w-full p-1 text-sm rounded font-medium" type="text" placeholder="Enter your email" v-model="userEmail">
@@ -27,14 +27,14 @@
       <div class="my-2">
           <button type="submit" class="mx-2 mb-4 p-2 block w-full bg-purple-500 text-white text-sm font-medium rounded" @click="emailLogin">Sign
               in</button>
-              <button type="submit" class="mx-2 p-2 block w-full text-gray-500 text-sm border font-medium rounded" @click="googleAuthLogin">
-                  <i></i> Sign
-              in with Google</button>
-      </div>
-      <div class="text-center text-sm pt-1 text-gray-400 font-semibold">
+            </div>
+          </form>
+          <button type="submit" class="mx-2 p-2 block w-full text-gray-500 text-sm border font-medium rounded" @click="googleAuthLogin">
+              <i></i> Sign
+          in with Google</button>
+    <div class="text-center text-sm pt-1 text-gray-400 font-semibold">
 
-          <span>Don't have an account? <RouterLink to="/signup" class="text-purple-600 font-medium">Sign up</RouterLink></span>
-      </div>
+        <span>Don't have an account? <RouterLink to="/signup" class="text-purple-600 font-medium">Sign up</RouterLink></span>
     </div>
       </div>
      
